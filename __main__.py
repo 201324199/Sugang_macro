@@ -44,6 +44,7 @@ def click(x,y):
 
 def find_location():
     while 1:
+        print("찾아야 할 것 : 1. 번호 뜨는 창 2. 번호 입력 창 3. 확인 버튼 좌표 4. 신청 버튼 ")
         mouse_p = win32api.GetCursorPos()
         print(mouse_p[0],mouse_p[1])
         os.system('cls')
@@ -51,25 +52,31 @@ def find_location():
             break;
 
 time.sleep(1)
+if __name__ == "__main__" : 
+    temp = input("1. 좌표찾기 2. 좌표입력")
 
-a_x = 223
-a_y = 225
-b_x = 307
-b_y = 225
-c_x = 192
-c_y = 290
-d_x = 423
-d_y = 936
+    if temp == '1' :
+        find_location()
+    else :
+        a_x = int(input("번호 뜨는 창 x : "))
+        a_y = int(input("번호 뜨는 창 y : "))
+        b_x = int(input("번호 입력 창 x : "))
+        b_y = int(input("번호 입력 창 y : "))
+        c_x = int(input("확인 x : "))
+        c_y = int(input("확인 y : "))
+        d_x = int(input("신청버튼 x : "))
+        d_y = int(input("신청버튼 y : "))
 
-find_location()
 
-while 1:
-    for i in range(20):
-        click(d_x,d_y)
-        time.sleep(1.5)
-        mouse_p = win32api.GetCursorPos()
-        if mouse_p[0] == 0 and mouse_p[1] == 0:
-            break;
-    if mouse_p[0] == 0 and mouse_p[1] == 0:
-        break;
-    press()
+        while 1:
+            for i in range(20):
+                click(d_x,d_y)
+                time.sleep(1.5)
+                mouse_p = win32api.GetCursorPos()
+                if mouse_p[0] == 0 and mouse_p[1] == 0:
+                    break;
+            if mouse_p[0] == 0 and mouse_p[1] == 0:
+                break;
+            press()
+
+input() 
